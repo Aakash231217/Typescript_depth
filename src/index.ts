@@ -117,7 +117,7 @@ function abc(n:number):number{
 }
 
 //function with object
-interface Product{
+{/*interface Product{
     name:string,
     stock:number,
     price:number,
@@ -138,3 +138,105 @@ const productOne:Product = {
     photo:"sampleurl",
     id:"hey",
 }
+
+
+//never type
+const err = new Error();
+
+const errorHandler = ()=>{
+    throw new Error();
+}
+
+
+
+// -------------Classes in Typescript---------------
+class Player {
+    public readonly id: String;
+    private height;
+    weight;
+    constructor(height:number,weight:number, protected power:number){
+        this.height = height;
+        this.weight = weight;
+        this.power = power;
+        this.id=String(Math.random()*100);
+    }
+   get getMyHeight():number{
+    return this.height;
+   }
+   set changeHeight(val:number){
+    this.height =val;
+   }
+
+}
+
+const aakash = new Player(100,150,99);
+
+console.log("Height",aakash.getMyHeight);
+console.log(aakash.changeHeight);
+aakash.changeHeight=500;
+console.log(aakash.changeHeight);
+class Player2 extends Player{
+    special:boolean;
+    constructor(height:number, weight:number, power:number,special:boolean){
+     super(height, weight, power)
+     this.special = special;
+    }
+    getMyPower = ()=>this.power;
+}
+
+const akki =  new Player2(100,50,23,true);
+console.log("Weight",akki.weight);
+//console.log("Height",akki.getMyHeight());
+console.log("Power",akki.getMyPower());
+
+
+interface ProductType {
+    name:String,
+    price:number,
+    stock:number,
+    id:string,
+    offer?:boolean
+} */}
+
+//Type assertion
+//const btn = document.getElementById("btn") as HTMLElement ;
+const btn = <HTMLElement>document.getElementById("btn") ;
+const img = document.getElementById("myimg") as HTMLImageElement;
+img.src
+btn?.onclick
+
+const form = document.getElementById("form")as HTMLFormElement;
+const myinput = document.querySelector("form > input") as HTMLInputElement;
+
+form.onsubmit = (e:SubmitEvent)=>{
+    e.preventDefault();
+  console.log(myinput.value)
+  console.log(typeof myinput.value);
+  const value = Number(myinput.value);
+  const h2= document.createElement("h2");
+  h2.textContent = String(value+20);
+  const body = document.querySelector("body")!;
+  body.append(h2);
+}
+
+
+interface Person {
+    name:string,
+    email:string,
+}
+
+const myObj:Person={
+    name:"Abhi",
+    email:"abhi@gmail.com"
+}
+const getName = ()=>{
+    return myObj["name"];
+}
+const getEmail=()=>{
+    return myObj["email"]
+}
+
+const getData = (key:keyof Person):string=>{
+    return myObj[key];
+}
+getData('name')
