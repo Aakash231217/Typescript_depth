@@ -118,3 +118,45 @@ const myfuncs = (a:number, b:string):string=>{
     return a+b
 }
 type functo = ReturnType<typeof myfuncs>
+
+
+//instance type
+class SampleClass1 {
+    constructor(public s:string, public t:string){}
+}
+type hello = InstanceType<typeof SampleClass1>
+
+
+//generics
+const futoo = (n:number):number=>{
+   return n;
+}
+
+const ans = futoo(20);
+
+//this is an actual generic where no one knows at last what you defined string number or anything
+const gene = <CustomType>(n:CustomType):CustomType=>{
+    let text:CustomType;
+    return n;
+}
+const result = gene("shitt");
+const result2 = gene(true);
+const result3 = gene(20);
+
+
+type Person1={
+    namse:string,
+    age:number
+}
+const fut = <T,U>(n:T,o:U):{n:T,o:U}=>{
+    return {n,o};
+}
+
+const answer = fut<number,string>(20,"Lol");
+
+const persona:Person1= {
+    name:"Aakash",
+    age:19,
+};
+const ans1= fut(persona);
+ans1.name
