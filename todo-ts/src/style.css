@@ -1,0 +1,63 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.container {
+   max-width: 1300px;
+   width:100%;
+   padding:2px;
+   margin:auto;
+
+}
+
+h1{
+  text-align: center;
+  letter-spacing: 0.124rem;
+  text-transform: uppercase;
+}
+
+.container > form{
+  width: 50%;
+  display: flex;
+  gap:5px;
+  margin:2rem auto;
+}
+
+.container > form > input{
+  width:80%;
+  padding:1rem;
+  border:1px solid rgba(145,145,135,0.695);
+  border-radius: 5px  0 0 5px;
+}
+
+.container>form>button{
+  padding:1rem;
+  border-radius: 0 4px 4px 0;
+  border: none;
+  background-color: rgb(17, 131, 230);
+  color:white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+}
+
+.todoContainer{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+.todo{
+  display: flex;
+  gap:1rem;
+}

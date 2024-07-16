@@ -154,9 +154,28 @@ const fut = <T,U>(n:T,o:U):{n:T,o:U}=>{
 
 const answer = fut<number,string>(20,"Lol");
 
-const persona:Person1= {
-    name:"Aakash",
-    age:19,
-};
-const ans1= fut(persona);
-ans1.name
+
+type Perrson = {
+    name:string,
+    age:number,
+}
+
+const ussers: Perrson[]=[
+    {
+      name:"Aakash",
+      age:19,
+    },{
+        name:"Nahar",
+        age:20,
+    },{
+        name:"Akshay",
+        age:17,
+    }
+]
+const filterbyPeoples =<TT,U extends keyof TT>(arr:TT[], property:U, value:TT[U]):TT[]=>{
+ return arr.filter(item=>item[property]===value)
+    
+} 
+
+const filteredPeopleByName = filterbyPeoples(ussers,"name","Nahar")
+console.log(filteredPeopleByName);
